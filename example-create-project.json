@@ -1,0 +1,127 @@
+{
+  "projectId": "sabbabeen-coffee-10",
+  "name": "صبابين قهوة",
+  "description": "خدمات صبابين قهوة محترفين لتقديم القهوة العربية والضيافة الأصيلة في جميع المناسبات.",
+  "isActive": true,
+  "siteSettings": {
+    "siteTitle": "صبابين قهوة | حجز صبابين قهوة محترفين للمناسبات",
+    "siteDescription": "نوفر صبابين قهوة محترفين لتقديم القهوة العربية بأسلوب راقٍ في المناسبات، الحفلات، والفعاليات الرسمية.",
+    "siteKeywords": [
+      "صبابين قهوة",
+      "حجز صبابين قهوة",
+      "صبابين قهوة مناسبات",
+      "صبابين قهوة محترفين",
+      "صبابين قهوة الرياض",
+      "قهوجي",
+      "قهوجيين",
+      "قهوجين"
+    ],
+    "phone": "+9660506142019",
+    "whatsapp": "+9660506142019",
+    "email": "info@qahwajialriyad.com",
+    "address": "الرياض – المملكة العربية السعودية",
+    "brandName": "صبابين قهوة"
+  },
+  "heroSection": {
+    "headline": "صبابين قهوة محترفين",
+    "headlineHighlight": "لضيافة عربية راقية",
+    "subheadline": "نوفر لك صبابين قهوة سعوديين ذوي خبرة عالية لتقديم القهوة العربية بأسلوب أنيق وتنظيم مثالي في جميع المناسبات.",
+    "primaryCtaText": "احجز صبابين قهوة الآن",
+    "primaryCtaLink": "#contact",
+    "secondaryCtaText": "تواصل واتساب",
+    "secondaryCtaLink": "#contact",
+    "backgroundImage": "/images/hero-bg.jpg",
+    "isActive": true
+  },
+  "aboutSection": {
+    "label": "من نحن",
+    "title": "صبابين قهوة يعكسون كرم الضيافة",
+    "description1": "نحن متخصصون في توفير صبابين قهوة محترفين يتمتعون باللباقة، المظهر الأنيق، والخبرة في تقديم القهوة العربية. نحرص على تقديم تجربة ضيافة متكاملة تضيف قيمة حقيقية لمناسبتك وتترك انطباعًا راقيًا لدى ضيوفك.",
+    "image": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1770372206/uploads/t5f4tslflhvpx76pehl4.jpg"
+  },
+  "servicesSection": {
+    "label": "خدماتنا",
+    "title": "خدمات صبابين القهوة",
+    "description": "نقدّم خدمات صبابين قهوة تناسب جميع أنواع المناسبات الخاصة والرسمية.",
+    "services": [
+      {
+        "icon": "Users",
+        "title": "صبابين قهوة مناسبات",
+        "description": "توفير صبابين قهوة محترفين لتغطية جميع المناسبات."
+      },
+      {
+        "icon": "Coffee",
+        "title": "صبابين قهوة حفلات وزواجات",
+        "description": "صبابين قهوة بزي أنيق يضيف لمسة فخامة للمناسبة."
+      },
+      {
+        "icon": "Building2",
+        "title": "صبابين قهوة شركات وفعاليات",
+        "description": "ضيافة احترافية للمؤتمرات والاجتماعات الرسمية."
+      },
+      {
+        "icon": "Heart",
+        "title": "صبابين قهوة VIP",
+        "description": "خدمة فاخرة لكبار الشخصيات بأعلى مستوى من الاحتراف."
+      }
+    ]
+  },
+  "whyUsSection": {
+    "label": "لماذا نحن",
+    "title": "لماذا تختار صبابين القهوة من خلالنا؟",
+    "description": "نلتزم بتقديم أعلى مستوى من خدمات صبابين القهوة لضمان نجاح مناسبتك.",
+    "features": [
+      {
+        "icon": "Award",
+        "title": "صبابين قهوة محترفين",
+        "description": "خبرة عالية في تقديم القهوة وأصول الضيافة."
+      },
+      {
+        "icon": "Clock",
+        "title": "التزام تام بالمواعيد",
+        "description": "حضور منظم ودقيق في الوقت المحدد."
+      },
+      {
+        "icon": "Sparkles",
+        "title": "مظهر أنيق ولباقة",
+        "description": "تعامل راقٍ يليق بضيوفك."
+      },
+      {
+        "icon": "Shield",
+        "title": "قهوة عربية بجودة عالية",
+        "description": "طعم ثابت وتحضير أصيل."
+      }
+    ]
+  },
+  "contactSection": {
+    "label": "تواصل معنا",
+    "title": "احجز صبابين قهوة الآن",
+    "description": "تواصل معنا الآن لحجز صبابين قهوة محترفين وضمان ضيافة عربية فاخرة."
+  },
+  "galleryImages": [
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771213/projects/cml0pt2jr0000rgu50g370mil/gallery/lv764topw6nmtbjqtssj.jpg",
+      "alt": "صبابين قهوة بالرياض يقدمون القهوة العربية باحتراف في المناسبات الخاصة"
+    },
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771207/projects/cml0pt2jr0000rgu50g370mil/gallery/gnidbnplcjhlta1syeah.jpg",
+      "alt": "صبابين قهوة متخصصون في الضيافة العربية الأصيلة للمناسبات الرسمية بالرياض"
+    },
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771199/projects/cml0pt2jr0000rgu50g370mil/gallery/fwgkj1zht6soc8fzdeqx.jpg",
+      "alt": "صبابين قهوة يستخدمون أدوات القهوة العربية الفاخرة والتراثية"
+    },
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771175/projects/cml0pt2jr0000rgu50g370mil/gallery/in3qdlnvybh3xaekpzjy.jpg",
+      "alt": "صبابين قهوة يقدمون القهوة العربية الأصيلة مع خدمات ضيافة راقية"
+    },
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771166/projects/cml0pt2jr0000rgu50g370mil/gallery/pmfdjkwnzsp6q0xhha62.jpg",
+      "alt": "صبابين قهوة لفعاليات الشركات والمؤتمرات بخدمة احترافية"
+    },
+    {
+      "url": "https://res.cloudinary.com/dg8bbwiu5/image/upload/v1769771144/projects/cml0pt2jr0000rgu50g370mil/gallery/fikakg7deae8cngjeosh.jpg",
+      "alt": "صبابين قهوة لحفلات الزفاف يقدمون ضيافة قهوة عربية فاخرة"
+    }
+  ]
+}
