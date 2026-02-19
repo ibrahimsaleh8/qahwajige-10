@@ -25,7 +25,7 @@ export default function HeroSection({
             </h1>
 
             {/* Description */}
-            <p className="text-text-body text-lg md:text-xl mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            <p className="text-black/80 text-lg md:text-xl mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
               {subheadline}
             </p>
 

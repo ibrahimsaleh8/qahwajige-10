@@ -21,7 +21,7 @@ export default async function Layout({
         <DashboardSidebar />
 
         <main className="flex flex-col w-full">
-          <div className="p-3 flex items-center justify-between bg-main-color-dark text-white">
+          <div className="p-3 flex items-center justify-between bg-main-color text-white">
             <SidebarTrigger />
             <div className="flex items-center gap-6">
               <Link
