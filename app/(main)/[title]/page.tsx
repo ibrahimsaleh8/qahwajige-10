@@ -1,4 +1,4 @@
-import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
+import { APP_URL, CurrentProjectId, currentURL } from "@/lib/ProjectId";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,27 +47,44 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const decodedTitle = await (await params).title.split("-").join(" ");
+  const { title } = await params;
 
-  const res = await fetch(`${APP_URL}/api/article/title/${decodedTitle}`);
+  const decodedTitle = decodeURIComponent(title).replace(/-/g, " ");
 
+  const res = await fetch(
+    `${APP_URL}/api/article/title/${encodeURIComponent(decodedTitle)}`,
+  );
   if (!res.ok) {
     return {
       title: "مقال غير موجود",
-      description: "هذا المقال غير متوفر حالياً",
+      description: "هذا المقال غير متوفر حالياً.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
-  const data = await res.json();
-  const article = data.data.article;
+  const { data } = await res.json();
+  const article = data.article;
 
-  const url = `${APP_URL}/articles/${(await params).title}`;
+  const canonicalUrl = `${currentURL}/${title}`;
 
   return {
     title: article.title,
+
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+
     openGraph: {
       title: article.title,
-      url,
+      url: canonicalUrl,
       type: "article",
       locale: "ar_SA",
       images: article.coverImage
@@ -80,6 +97,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
           ]
         : [],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      images: article.coverImage ? [article.coverImage] : [],
     },
   };
 }

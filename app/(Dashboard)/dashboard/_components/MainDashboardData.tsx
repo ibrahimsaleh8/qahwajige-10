@@ -89,7 +89,7 @@ export default function MainDashboardData({
         console.error("Error response:", errorData);
         Toast({ icon: "error", message: "حدث خطأ أثناء الحفظ" });
       }
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (error) {
       console.error("Error saving data:", error);
       Toast({ icon: "error", message: "حدث خطأ أثناء الحفظ" });

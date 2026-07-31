@@ -1,6 +1,7 @@
 // app/page.tsx
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import CustomSection from "@/components/CustomSection";
 import FAQSection from "@/components/FAQSection";
 import { GallerySection } from "@/components/GallerySection";
 import HeroSection from "@/components/HeroSection";
@@ -33,6 +34,7 @@ export default async function HomePage() {
         email: "",
         address: "",
       },
+      customSections: [],
     };
   }
 
@@ -41,6 +43,16 @@ export default async function HomePage() {
       <HeroSection {...data.hero} image={data.about.image} />
       <AboutSection {...data.about} features={data.whyUs.features} />
       <ServicesSection {...data.services} />
+      {data.customSections &&
+        data.customSections.length > 0 &&
+        data.customSections.map((customSection, index) => (
+          <CustomSection
+            key={customSection.id}
+            {...customSection}
+            index={index}
+          />
+        ))}
+
       <PremiumPackagesSection
         packages={data.packages ?? []}
         whatsapp={data.hero?.whatsApp ?? ""}

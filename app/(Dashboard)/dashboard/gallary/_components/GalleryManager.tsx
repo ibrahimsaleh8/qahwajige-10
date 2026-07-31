@@ -102,7 +102,7 @@ export default function GalleryManager({
         });
       }
 
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "فشل في رفع الصورة";
@@ -154,7 +154,7 @@ export default function GalleryManager({
         icon: "success",
         message: "تم حذف الصورة بنجاح",
       });
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (error) {
       const errorMessage =
         error instanceof Error ? error.message : "فشل في حذف الصورة";

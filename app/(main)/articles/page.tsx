@@ -1,7 +1,8 @@
-import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
+import { APP_URL, CurrentProjectId, currentURL } from "@/lib/ProjectId";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 
 type Article = {
   id: string;
@@ -18,6 +19,28 @@ type GetArticlesResponse = {
     articles: Article[];
     count: number;
   };
+};
+
+export const metadata: Metadata = {
+  title: "خدمات الضيافة والمقالات",
+  description:
+    "اطلع على أحدث المقالات والنصائح المتعلقة بخدمات الضيافة والقهوة العربية.",
+  alternates: {
+    canonical: `${currentURL}/articles`,
+  },
+  openGraph: {
+    title: "خدمات الضيافة والمقالات",
+    description:
+      "اطلع على أحدث المقالات والنصائح المتعلقة بخدمات الضيافة والقهوة العربية.",
+    url: `${currentURL}/articles`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "خدمات الضيافة والمقالات",
+    description:
+      "اطلع على أحدث المقالات والنصائح المتعلقة بخدمات الضيافة والقهوة العربية.",
+  },
 };
 
 export default async function ArticlesPage() {

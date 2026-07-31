@@ -116,7 +116,7 @@ export default function ArticlesManager({
 
       const article = json.data.article;
 
-      await fetch("/api/revalidate-articles");
+      await fetch("/api/revalidate-metatags");
 
       setArticles((prev) =>
         editingId
@@ -160,7 +160,7 @@ export default function ArticlesManager({
         method: "DELETE",
       });
       if (!res.ok) throw new Error("فشل حذف المقال");
-      await fetch("/api/revalidate-articles");
+      await fetch("/api/revalidate-metatags");
 
       setArticles((prev) => prev.filter((a) => a.id !== id));
       setSuccess("تم حذف المقال بنجاح");

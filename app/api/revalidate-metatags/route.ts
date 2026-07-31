@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    revalidateTag("metadata", "max");
     revalidatePath("/", "layout");
     return NextResponse.json({ message: "Revalidation done" });
   } catch (error) {

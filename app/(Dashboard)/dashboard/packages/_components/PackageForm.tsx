@@ -107,7 +107,7 @@ export default function PackageForm({ projectId, packages }: PackageFormProps) {
           message: data.message || data.error || "فشل في إنشاء الباقة",
         });
       }
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (err) {
       Toast({
         icon: "error",
@@ -157,7 +157,7 @@ export default function PackageForm({ projectId, packages }: PackageFormProps) {
           message: data.message || data.error || "فشل في التحديث",
         });
       }
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (err) {
       Toast({
         icon: "error",

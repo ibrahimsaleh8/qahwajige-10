@@ -108,7 +108,7 @@ export default function AboutProjectForm({
         Toast({ icon: "error", message: "حدث خطأ أثناء الحفظ" });
       }
 
-      await fetch("/api/revalidate-main-data");
+      await fetch("/api/revalidate-metatags");
     } catch (error) {
       console.error("Error saving about project data:", error);
       Toast({ icon: "error", message: "حدث خطأ أثناء الحفظ" });

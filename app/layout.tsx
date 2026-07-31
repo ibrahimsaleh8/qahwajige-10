@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
-import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
+import { APP_URL, CurrentProjectId, currentURL } from "@/lib/ProjectId";
 import { StructuredData } from "@/components/StructuredData";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
@@ -29,13 +29,13 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     );
     const data: MetaDataResponseDataType = await res.json();
-
     const title = data.title || data.brandName;
     const description = data.description;
     const brandName = data.brandName;
     const keywords = data.keywords || [brandName];
 
     return {
+      metadataBase: new URL(currentURL ?? ""),
       title,
       description,
       keywords,
@@ -65,7 +65,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       },
       alternates: {
-        canonical: process.env.NEXT_PUBLIC_APP_URL,
+        canonical: currentURL,
       },
       verification: {
         google: "Hqq8aaxAOSJDIOt44S3oopaS0l9bu1pHsr6s4WkROW0",

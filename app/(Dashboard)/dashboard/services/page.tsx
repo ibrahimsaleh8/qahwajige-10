@@ -31,7 +31,7 @@ export default async function Services() {
     `${APP_URL}/api/dashboard/${CurrentProjectId}/get-services`,
     {
       cache: "no-store",
-    }
+    },
   );
   const data: GetServicesResponse = await res.json();
   return (
