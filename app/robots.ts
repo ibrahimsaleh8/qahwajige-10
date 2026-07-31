@@ -1,4 +1,5 @@
 // app/robots.ts
+import { currentURL } from "@/lib/ProjectId";
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
@@ -10,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/dashboard", "/login"],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
+    sitemap: `${currentURL}/sitemap.xml`,
   };
 }
