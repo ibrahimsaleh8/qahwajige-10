@@ -93,7 +93,7 @@ export default async function RootLayout({
         <StructuredData
           name={data.brandName}
           description={data.description}
-          url={process.env.NEXT_PUBLIC_APP_URL as string}
+          url={currentURL as string}
         />
       </head>
       <body className={`${cairoFont.className} antialiased`}>

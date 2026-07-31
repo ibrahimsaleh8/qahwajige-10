@@ -39,7 +39,9 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--color-main-background))] text-[hsl(var(--color-text-heading))] overflow-x-hidden">
+    <main
+      role="main"
+      className="min-h-screen bg-[hsl(var(--color-main-background))] text-[hsl(var(--color-text-heading))] overflow-x-hidden">
       <HeroSection {...data.hero} image={data.about.image} />
       <AboutSection {...data.about} features={data.whyUs.features} />
       <ServicesSection {...data.services} />
@@ -65,6 +67,6 @@ export default async function HomePage() {
       <FAQSection />
       <GallerySection gallery={data.gallery} />
       <ContactSection {...data.footer} whatsapp={data.hero?.whatsApp ?? ""} />
-    </div>
+    </main>
   );
 }
