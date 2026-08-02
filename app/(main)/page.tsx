@@ -1,6 +1,5 @@
 // app/page.tsx
 import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
 import CustomSection from "@/components/CustomSection";
 import FAQSection from "@/components/FAQSection";
 import { GallerySection } from "@/components/GallerySection";
@@ -66,7 +65,6 @@ export default async function HomePage() {
       />
       <FAQSection />
       <GallerySection gallery={data.gallery} />
-      <ContactSection {...data.footer} whatsapp={data.hero?.whatsApp ?? ""} />
     </main>
   );
 }
