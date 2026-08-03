@@ -5,18 +5,28 @@ import Image from "next/image";
 import { APP_URL, CurrentProjectId } from "@/lib/ProjectId";
 import { Input } from "@/components/ui/input";
 import ArticleEditor from "./ArticleEditor";
+import { Category } from "./CategoriesManager";
 
 export type Article = {
   id: string;
   title: string;
   content: string | null; // HTML
   coverImage: string | null;
+  category?: {
+    id: string;
+    name: string;
+    slug: string;
+  } | null;
 };
 
 export default function ArticlesManager({
   initialArticles,
+  categories,
+  token,
 }: {
   initialArticles: Article[];
+  token: string;
+  categories: Category[];
 }) {
   const [articles, setArticles] = useState<Article[]>(initialArticles);
 
@@ -24,6 +34,7 @@ export default function ArticlesManager({
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("<p></p>");
   const [coverImage, setCoverImage] = useState<string | null>(null);
+  const [categorySlug, setCategorySlug] = useState("");
 
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState("");
@@ -39,6 +50,7 @@ export default function ArticlesManager({
     setTitle("");
     setContent("<p></p>");
     setCoverImage(null);
+    setCategorySlug("");
     setFile(null);
     setPreview("");
   };
@@ -58,6 +70,9 @@ export default function ArticlesManager({
     const res = await fetch(`${APP_URL}/api/upload-images`, {
       method: "POST",
       body: data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     const result = await res.json();
@@ -92,12 +107,18 @@ export default function ArticlesManager({
       }
 
       const body = editingId
-        ? { title, content, coverImage: coverImageUrl }
+        ? {
+            title,
+            content,
+            coverImage: coverImageUrl,
+            ...(categorySlug ? { categorySlug } : {}),
+          }
         : {
             projectId: CurrentProjectId,
             title,
             content,
             coverImage: coverImageUrl,
+            ...(categorySlug ? { categorySlug } : {}),
           };
 
       const res = await fetch(
@@ -106,7 +127,10 @@ export default function ArticlesManager({
           : `${APP_URL}/api/article`,
         {
           method: editingId ? "PUT" : "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
           body: JSON.stringify(body),
         },
       );
@@ -141,6 +165,7 @@ export default function ArticlesManager({
     setTitle(article.title);
     setContent(article.content || "<p></p>");
     setCoverImage(article.coverImage);
+    setCategorySlug(article.category?.slug || "");
     setPreview(article.coverImage || "");
     setFile(null);
     setError(null);
@@ -193,6 +218,25 @@ export default function ArticlesManager({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+
+        {/* Category Dropdown */}
+        <div className="space-y-1">
+          <label className="text-xs font-medium text-[#8B7D72]">
+            التصنيف (اختياري)
+          </label>
+          <select
+            value={categorySlug}
+            onChange={(e) => setCategorySlug(e.target.value)}
+            className="w-full border border-input rounded-md px-3 py-2 text-sm bg-white text-[#332822] focus:outline-none focus:ring-2 focus:ring-[#6B4E2F]/40"
+            dir="rtl">
+            <option value="">— اختر تصنيفاً (افتراضي: خدمات الضيافة) —</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.slug}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Cover Image Upload */}
         <div
@@ -259,9 +303,16 @@ export default function ArticlesManager({
                     </div>
                   )}
                   <div className="space-y-1 max-w-full">
-                    <h3 className="font-medium text-[#332822]">
-                      {article.title}
-                    </h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-medium text-[#332822]">
+                        {article.title}
+                      </h3>
+                      {article.category && (
+                        <span className="text-xs bg-[#f3ede8] text-[#6B4E2F] px-2 py-0.5 rounded-full font-medium shrink-0">
+                          {article.category.name}
+                        </span>
+                      )}
+                    </div>
                     {article.content && (
                       <div
                         className="text-xs text-slate-500 line-clamp-3 prose max-w-full"

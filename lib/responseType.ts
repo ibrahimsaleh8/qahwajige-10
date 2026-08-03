@@ -14,6 +14,7 @@ export type ProjectContentResponse = {
   };
   socialMediaLinks: SocialMediaLinks;
   customSections: CustomSection[];
+  showContactSection: boolean;
 };
 
 // Header & Footer

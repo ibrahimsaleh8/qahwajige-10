@@ -39,8 +39,8 @@ export function Header({
           {/* Logo - Left */}
           <Link
             href="/"
-            className="flex items-center gap-2 md:gap-3  sm:text-lg md:text-xl font-bold text-main-color">
-            <span className="w-8 h-8 rounded bg-main-color flex items-center justify-center">
+            className="flex items-center gap-2 md:gap-3  sm:text-lg md:text-xl font-bold text-main-color sm:max-w-sm max-w-60">
+            <span className="w-8 h-8 rounded bg-main-color flex items-center justify-center shrink-0">
               <Coffee className="w-5 h-5 text-white" />
             </span>
             <span>{brandName}</span>

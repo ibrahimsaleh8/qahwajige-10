@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 export default async function ArticlesPage() {
   const res = await fetch(
-    `${APP_URL}/api/project/${CurrentProjectId}/articles`,
+    `${APP_URL}/api/project/${CurrentProjectId}/articles/category/خدمات-الضيافة`,
   );
 
   if (!res.ok) {
@@ -54,7 +54,6 @@ export default async function ArticlesPage() {
 
   const data: GetArticlesResponse = await res.json();
   const articles = data.data.articles;
-
   return (
     <section id="articles" className="py-10 min-h-[60vh] pt-25">
       <div className="px-4 md:px-6 lg:px-8 max-w-6xl mx-auto text-black">
@@ -112,6 +111,13 @@ export default async function ArticlesPage() {
                 )}
 
                 <div className="flex flex-col flex-1 p-6">
+                  <span className="text-xs text-black/90 mb-1">
+                    {new Date(article.createdAt).toLocaleDateString("ar-SA", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </span>
                   <h2
                     className="font-black text-lg mb-3 line-clamp-2"
                     style={{ color: "var(--main-color)" }}>
@@ -126,23 +132,12 @@ export default async function ArticlesPage() {
                     </p>
                   )}
 
-                  <div
-                    className="flex items-center justify-between mt-auto pt-4 border-t"
-                    style={{ borderColor: "var(--border-warm)" }}>
-                    <span className="text-xs text-black/90">
-                      {new Date(article.createdAt).toLocaleDateString("ar-SA", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })}
-                    </span>
-                    <span
-                      className="text-xs font-semibold flex items-center gap-1"
-                      style={{ color: "var(--accent-gold)" }}>
+                  <p className="" style={{ borderColor: "var(--border-warm)" }}>
+                    <span className="text-xs font-semibold flex items-center justify-center gap-1 mt-auto py-1.5 bg-main-color text-white rounded-md">
                       اقرأ المقال
                       <ArrowLeft className="w-3 h-3" strokeWidth={2} />
                     </span>
-                  </div>
+                  </p>
                 </div>
               </Link>
             ))}
