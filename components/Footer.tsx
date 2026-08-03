@@ -20,7 +20,6 @@ export default function Footer({
       { name: "خدماتنا", href: "/#services" },
       { href: "/articles", name: "خدمات الضيافة" },
       { name: "الأسئلة الشائعة", href: "/#faq" },
-      { name: "اتصل بنا", href: "/#contact" },
     ],
   };
 
